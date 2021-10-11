@@ -83,3 +83,11 @@ VALUES (19,'Emil','Kurowski',99020933396,'Regular Specialist','Gdańsk');
 
 INSERT INTO employees (ID, name, surname, pesel, position_job, department)
 VALUES (20,'Rozalia','Jasińska',72090207024,'Senior Specialist','Gdańsk');
+
+/* TABLE MODIFICATION */
+
+ALTER TABLE customers
+ADD phone varchar(12) not null;
+
+ALTER TABLE customers
+ADD city varchar(30) not null;
