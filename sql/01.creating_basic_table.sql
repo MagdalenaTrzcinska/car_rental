@@ -2,7 +2,7 @@ create table employees (
 ID int not null primary key,
 name varchar(20) not null,
 surname varchar(60) not null,
-pesel bigint not null check (length(pesel)=11),
+pesel bigint not null check(length(pesel)=11),
 position_job varchar(70) not null,
 department varchar(10) not null
 );
@@ -11,7 +11,7 @@ create table customers (
 ID int not null primary key,
 name varchar(20) not null,
 surname varchar(60) not null,
-pesel bigint not null check (length(pesel)=11)
+pesel bigint not null check(length(pesel)=11)
 );
 
 create table cars (
@@ -91,3 +91,12 @@ ADD phone varchar(12) not null;
 
 ALTER TABLE customers
 ADD city varchar(30) not null;
+
+ALTER TABLE customers
+MODIFY phone varchar(12) not null check(left(phone, 1) = "+");
+
+ALTER TABLE customers
+MODIFY pesel bigint not null check(length(pesel) = 11);
+
+ALTER TABLE customers
+ADD CONSTRAINT CHK_phone check(phone REGEXP '[+][0-9]{11}');
